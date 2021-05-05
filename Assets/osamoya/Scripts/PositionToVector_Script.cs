@@ -32,6 +32,11 @@ public class PositionToVector_Script : MonoBehaviour
         
     }
     
-    
-    
+    float calcDistance(float x,float y)
+    {
+        return Mathf.Sqrt(x*x+y*y);
+    }
+
+
+
 }
