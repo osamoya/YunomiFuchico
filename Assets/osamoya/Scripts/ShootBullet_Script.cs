@@ -18,7 +18,7 @@ public class ShootBullet_Script : MonoBehaviour
         
     }
 
-    void shot(Vector3 start,Vector3 angle,float force)
+    public void shot(Vector3 start,Vector3 angle,float force)
     {
         GameObject b=Instantiate(bullet);
         b.transform.position = start;
