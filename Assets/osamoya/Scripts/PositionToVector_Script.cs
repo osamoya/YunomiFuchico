@@ -17,7 +17,7 @@ public class PositionToVector_Script : MonoBehaviour
     Vector3 TargetPoint;
 
     [SerializeField] float reachTime;
-    [SerializeField] float arg;//上向きの角度(xz_y)
+    [SerializeField] Vector3 arg;//角度のベクトル
     [SerializeField] float force;
     
     // Start is called before the first frame update
@@ -53,5 +53,8 @@ public class PositionToVector_Script : MonoBehaviour
         shootBullet_.shot(StartPoint,calcAngle(),force);
         
     }
+    void calcForce()
+    {
 
+    }
 }
