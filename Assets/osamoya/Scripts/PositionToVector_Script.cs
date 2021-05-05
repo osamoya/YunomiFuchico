@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class PositionToVector_Script : MonoBehaviour
 {
+    [SerializeField] ShootBullet_Script shootBullet_;
     [SerializeField] float gravity = 9.8f;
     [SerializeField] GameObject StartObj;
     [SerializeField] GameObject TargetObj;
@@ -29,7 +30,7 @@ public class PositionToVector_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) calcAngle();
+        if (Input.GetKeyDown(KeyCode.Space)) shot();
     }
     Vector3 calcAngle() { return calcAngle(StartPoint, TargetPoint); }
     Vector3 calcAngle(Vector3 start,Vector3 target)
@@ -47,6 +48,10 @@ public class PositionToVector_Script : MonoBehaviour
         return Mathf.Sqrt(x*x+y*y);
     }
 
-
+    void shot()
+    {
+        shootBullet_.shot(StartPoint,calcAngle(),force);
+        
+    }
 
 }
