@@ -390,8 +390,8 @@ MonoBehaviour:
   StartObj: {fileID: 355250079}
   TargetObj: {fileID: 1215615788}
   reachTime: 1
-  arg: 0
-  force: 0
+  arg: {x: 0, y: 0, z: 0}
+  force: 1
 --- !u!114 &355250088
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ public class PositionToVector_Script : MonoBehaviour
     [SerializeField] GameObject TargetObj;
     Vector3 StartPoint;
     Vector3 TargetPoint;
+    float HoriDistance;
+    float tan;
 
     [SerializeField] float reachTime;
     [SerializeField] Vector3 arg;//角度のベクトル
@@ -36,11 +38,13 @@ public class PositionToVector_Script : MonoBehaviour
     Vector3 calcAngle(Vector3 start,Vector3 target)
     {
         target -= start;//原点に飛ばしてあげる
-        float tan = target.y + gravity * reachTime * reachTime;//角度が出るはず
-        float AngleY = tan * calcDistance(target.x, target.z);
+        tan = target.y + gravity * reachTime * reachTime;//角度が出るはず
+        HoriDistance = calcDistance(target.x, target.z);
+        float AngleY = tan * HoriDistance;
         Vector3 angle = new Vector3(target.x, AngleY, target.z);
         Debug.Log("方向："+angle);
-        return angle.normalized;
+        arg = angle.normalized;
+        return arg;
     }
 
     float calcDistance(float x,float y)
@@ -50,11 +54,16 @@ public class PositionToVector_Script : MonoBehaviour
 
     void shot()
     {
-        shootBullet_.shot(StartPoint,calcAngle(),force);
+        shootBullet_.shot(StartPoint,calcAngle(),calcForce());
         
     }
-    void calcForce()
+    float calcForce()
     {
-
+        return force*HoriDistance/reachTime/calcCos();
+    }
+    
+    float calcCos()
+    {
+        return Mathf.Cos(Mathf.Atan(tan));
     }
 }
