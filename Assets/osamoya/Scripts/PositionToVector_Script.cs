@@ -31,7 +31,17 @@ public class PositionToVector_Script : MonoBehaviour
     {
         
     }
-    
+
+    Vector3 calcAngle(Vector3 start,Vector3 target)
+    {
+        target -= start;//原点に飛ばしてあげる
+        float tan = target.y + gravity * reachTime * reachTime;//角度が出るはず
+        float AngleY = tan * calcDistance(target.x, target.z);
+        Vector3 angle = new Vector3(target.x, AngleY, target.z);
+        Debug.Log("方向："+angle);
+        return angle.normalized;
+    }
+
     float calcDistance(float x,float y)
     {
         return Mathf.Sqrt(x*x+y*y);
