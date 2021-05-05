@@ -29,9 +29,9 @@ public class PositionToVector_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space)) calcAngle();
     }
-
+    Vector3 calcAngle() { return calcAngle(StartPoint, TargetPoint); }
     Vector3 calcAngle(Vector3 start,Vector3 target)
     {
         target -= start;//原点に飛ばしてあげる
