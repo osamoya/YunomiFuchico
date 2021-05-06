@@ -45,7 +45,15 @@ public class Pillar : MonoBehaviour
             Debug.Log("接触！");
         }
     }
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == BallTag)//ここに球のタグ入れてください
+        {
+            PillarMove(1);
+            Debug.Log("接触！");
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
