@@ -6,15 +6,15 @@ public class ShootByTime_Script : MonoBehaviour
 {
     [SerializeField] GameObject Bullet;
     [SerializeField] GameObject StartPos;
-    [SerializeField] GameObject TargetPos;
+    //[SerializeField] GameObject TargetPos;
     [SerializeField] float reachTime=1.0f;
-
+    public Vector3 TargetV;
     Vector3 V0 = new Vector3(0,0,0);//初速
 
     // Start is called before the first frame update
     void Start()
     {
-        
+      //  TargetV = TargetPos.transform.position;   
     }
 
     // Update is called once per frame
@@ -28,10 +28,18 @@ public class ShootByTime_Script : MonoBehaviour
             shot();
         }
     }
+    public void Fire(Vector3 target)
+    {
+        Debug.Log("target:"+target);
+        TargetV = target;
+        calcVelocity();
+        shot();
+    }
 
     void calcVelocity()
     {
-        Vector3 deltaVector = TargetPos.transform.position-StartPos.transform.position;
+        //Vector3 deltaVector = TargetPos.transform.position-StartPos.transform.position;
+        Vector3 deltaVector = TargetV - StartPos.transform.position;
         V0.x = deltaVector.x / reachTime;
         V0.z = deltaVector.z / reachTime;
 
