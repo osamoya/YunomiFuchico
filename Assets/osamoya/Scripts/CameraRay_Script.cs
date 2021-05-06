@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraRay_Script : MonoBehaviour
 {
     Camera MainCamera;
+    [SerializeField]ShootByTime_Script shootByTime_;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class CameraRay_Script : MonoBehaviour
             //m_object.transform.position = hitInfo.point;
             Debug.Log("わーい");
             Debug.Log("場所："+hitInfo.point);
+            shootByTime_.Fire(hitInfo.point);
         }
     }
 }
