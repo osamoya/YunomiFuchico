@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,6 +440,8 @@ GameObject:
   - component: {fileID: 799059508}
   - component: {fileID: 799059507}
   - component: {fileID: 799059506}
+  - component: {fileID: 799059510}
+  - component: {fileID: 799059509}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -512,6 +514,35 @@ Transform:
   m_Father: {fileID: 2027477468}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 30.601002, y: 0, z: 0}
+--- !u!114 &799059509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799059505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1545f9aab6b3c0449e48dbc76b8550c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 2186683149137959226, guid: 592be1326fdacae44a758af5cb9768fc, type: 3}
+  StartPos: {fileID: 277450405}
+  reachTime: 1
+  TargetV: {x: 0, y: 0, z: 0}
+--- !u!114 &799059510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799059505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea189f96954ae944aaf11c6377bbf3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootByTime_: {fileID: 799059509}
 --- !u!1 &967317265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027477468}
+  - component: {fileID: 2027477469}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -1064,3 +1096,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027477469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027477467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69067ff6ac2b864a9d34e0a1f14397f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
